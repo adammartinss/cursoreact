@@ -1,6 +1,6 @@
 import React from 'react'
 import Frank from '../../assets/img/focean.png'
-
+import './style.css'
 export default function header(){
     return(
         <header>
