@@ -10,7 +10,7 @@ import Adam from './components/Adam';
 import Ls from './components/Ls'
 export default function App() {
     useEffect(() => {
-        document.title= 'Status: ' ;
+        document.title= 'O brabo ' ;
     });
     // const[nota1, setNota1]=useState('')
     // const[nota2, setNota2]=useState('')

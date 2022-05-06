@@ -5,10 +5,10 @@ export default function Local() {
     const armazenar = (chave, valor) => {
         localStorage.setItem(chave, valor);
     };
-    const consultar = (chave) => {
-        alert(localStorage.geItem(chave));
+    const consultar = chave => {
+        alert(localStorage.getItem(chave));
     };
-    const apagar = (chave) => {
+    const apagar = chave => {
         localStorage.removeItem(chave);
     };
     // localStorage.setItem('nome', 'Adam')
@@ -22,7 +22,7 @@ export default function Local() {
             <input
                 type="text"
                 value={nome}
-                onChange={(e) => setNome(e.target.value)}
+                onChange={e => setNome(e.target.value)}
             />
             <br />
             <button onClick={() => armazenar('ls_nome', nome)}>
