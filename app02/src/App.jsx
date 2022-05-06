@@ -18,10 +18,10 @@ export default function App() {
     // const[nota4, setNota4]=useState('')
     const [log, setLog] = useState(false);
     const [notas, setNotas] = useState({
-        nota1: '0',
-        nota2: '0',
-        nota3: '0',
-        nota4: '0',
+        'nota1': '0',
+        'nota2': '0',
+        'nota3': '0',
+        'nota4': '0',
     });
     const handleSetNotas = (e) => {
         if (e.target.getAttribute('name') == 'nota1') {

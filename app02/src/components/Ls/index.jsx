@@ -30,6 +30,7 @@ export default function Local() {
             </button>
             <button onClick={() => consultar('ls_nome')}>Ver Nome</button>
             <button onClick={() => apagar('ls_nome')}>Remover Nome</button>
+            <h1>{document.innerHTML = nome}</h1>  
         </>
     );
 }
