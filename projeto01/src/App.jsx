@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 const campeoes = [
     { categoria: 'Topo', preço: '6300', nome: 'Jayce' },
