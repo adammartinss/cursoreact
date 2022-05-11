@@ -1,19 +1,10 @@
-import { prisma } from './prisma'
-import express from 'express';
-<<<<<<< HEAD
+import express from 'express'
 import nodemailer from 'nodemailer'
-=======
->>>>>>> parent of 9d6fc17 (nide)
+import {prisma} from './prisma'
+import { PrismaFeedbacksRepository } from './prisma/prisma-feedbacks-reposity';
+import { SubmitFeedbackUseCase } from './use-cases/submit-feedback-use-case';
+export const routes = express.Router()
 
-const app = express();
-
-app.use(express.json());
-// get, post, put, patch, delete
-// get = buscar info
-// post = cadastrar info
-// put = atualizar info de uma entdd
-// patch = atualizar uma infounica de uma entdd
-// delete = delte
 const transport = nodemailer.createTransport({
     host: 'smtp.mailtrap.io',
     port: 2525,
@@ -22,16 +13,18 @@ const transport = nodemailer.createTransport({
         pass: '50c09987bb4117',
     },
 });
-app.post('/feedbacks', async (req, res) => {
+routes.post('/feedbacks', async (req, res) => {
     const {type, comment, screenshot} = req.body
-    const feedback = await prisma.feedback.create({
-
-        data:{
+    const prismaFeedbacksRepository = new PrismaFeedbacksRepository()
+    const submitFeedbackUseCase = new SubmitFeedbackUseCase(
+        prismaFeedbacksRepository
+    );
+        await submitFeedbackUseCase.execute({
             type,
             comment,
             screenshot,
-        }
-    })
+        })
+    const feedback = 
 await transport.sendMail({
     from: 'Equipe Feedget <oi@feedget.com',
     to: 'Adam Martins <gamebacon7654@gmail.com>',
@@ -46,8 +39,4 @@ await transport.sendMail({
     
 })
     return res.status(201).json({data: feedback})
-});
-
-app.listen(3333, () => {
-    console.log('HTTP server running!');
 });
